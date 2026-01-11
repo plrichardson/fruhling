@@ -1,5 +1,5 @@
 {{- define "photomosaic" -}}
-{{- partial "partials/shared/photomosaic.html" . -}}
+{{- partial "shared/photomosaic.html" . -}}
 {{- end -}}
 
 {{- define "content" -}}
@@ -78,12 +78,12 @@
                             {{- if .Title -}}<div class="story-title"><h1 class="story_title">{{ .Title }}</h1></div>{{- end -}}
                         </div>
                         <div class="post_text post_meta_top">
-                            {{- partial "partials/shared/tags.html" . -}}
-                            {{- partial "partials/shared/date.html" . -}}
+                            {{- partial "shared/tags.html" . -}}
+                            {{- partial "shared/date.html" . -}}
                         </div>
                     </article>
                 </div>
-                {{- partial "partials/remark42/comments.html" . -}}
+                {{- partial "remark42/comments.html" . -}}
             </div>
         </div>
     </div>
