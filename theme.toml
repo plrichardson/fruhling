@@ -6,9 +6,8 @@ homepage = "https://github.com/romka/fruhling"
 demosite = "https://romka.github.io/fruhling-demo/"
 tags = ["Blog", "Responsive", "Personal", "Light", "Minimal", "Clean", "Gallery", "Multilingual", "Bootstrap", "Google Analytics"]
 features = ["Gallery", "Embedded gallery"]
-min_version = "0.98.0"
+min_version = "0.158.0"
 
 [author]
     name = "Roman Arkharov"
     homepage = "https://romka.eu"
-

@@ -1,5 +1,5 @@
 {{- define "photomosaic" -}}
-    {{- partial "partials/shared/photomosaic.html" . -}}
+    {{- partial "shared/photomosaic.html" . -}}
 {{- end -}}
 
 {{ define "content"}}
@@ -18,9 +18,9 @@
                         {{- if and (eq $titleGalleryLen 0) (eq $coverImageLen 0) -}}{{- $topRadius = " post_text_top_radius" -}}{{- end -}}
                         <div class="post_text{{ $topRadius }}">
                             <div class="post_meta_top">
-                                {{- partial "partials/shared/links-to-translations.html" . .Page -}}
-                                {{- partial "partials/shared/tags.html" . -}}
-                                {{- partial "partials/shared/date.html" . -}}
+                                {{- partial "shared/links-to-translations.html" . .Page -}}
+                                {{- partial "shared/tags.html" . -}}
+                                {{- partial "shared/date.html" . -}}
                             </div>
                             <h1 class="post_title"><a href="{{ .RelPermalink | relURL }}">{{ .Title }}</a></h1>
                             <div class="post_content padding_bottom">
@@ -34,7 +34,7 @@
                         </div>
                     </article>
                 </div>
-                {{- partial "partials/remark42/comments.html" . -}}
+                {{- partial "remark42/comments.html" . -}}
             </div>
         </div>
     </div>

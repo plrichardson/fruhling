@@ -1,10 +1,9 @@
 baseURL = 'http://localhost:8000'
-languageCode = 'en-us'
+locale = 'en-US'
 title = 'Frühling demo'
 summaryLength = 25
 theme = 'fruhling'
 defaultcontentlanguage = 'en'
-languagecode = "en-us"
 enableRobotsTXT = true
 googleAnalytics = "???"
 timeout = "1800s"
