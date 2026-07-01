@@ -20,7 +20,7 @@ The regression tests SHALL build the bundled example site with Hugo warnings tre
 The regression tests SHALL fail when obsolete or unsafe template patterns return in theme-owned files.
 
 #### Scenario: Deprecated template patterns return
-- **WHEN** a theme template uses old `partials/` partial paths, deprecated language code APIs, deprecated site collection APIs, deprecated image EXIF access, or direct image transforms outside the guarded helper
+- **WHEN** a theme template uses old `partials/` partial paths, deprecated language code APIs, deprecated site collection APIs, deprecated image EXIF access, direct image transforms outside the guarded helper, or a literal partial reference without a matching partial file
 - **THEN** the regression test command fails and prints the matching file locations
 
 ### Requirement: Rendered output is sanity checked

@@ -66,6 +66,34 @@ assert_no_html_contains_regex() {
     fi
 }
 
+assert_static_partials_exist() {
+    local missing="$TMP_DIR/missing-partials.txt"
+    local partial_name
+    local direct_path
+    local html_path
+
+    : >"$missing"
+
+    while IFS= read -r partial_name; do
+        direct_path="$THEME_ROOT/layouts/_partials/$partial_name"
+        html_path="$direct_path.html"
+
+        if [[ ! -f "$direct_path" && ! -f "$html_path" ]]; then
+            printf '%s\n' "$partial_name" >>"$missing"
+        fi
+    done < <(
+        rg -No 'partial(Cached)?[[:space:]]+"[^"]+"' "$THEME_ROOT/layouts" \
+            | sed -E 's/.*partial(Cached)?[[:space:]]+"([^"]+)".*/\2/' \
+            | sort -u
+    )
+
+    if [[ -s "$missing" ]]; then
+        printf 'Missing partial templates:\n' >&2
+        cat "$missing" >&2
+        exit 1
+    fi
+}
+
 write_fixture_config() {
     local site_dir=$1
 
@@ -141,6 +169,7 @@ run_static_checks() {
     local matches="$TMP_DIR/direct-image-transforms.txt"
 
     assert_no_file_contains_regex "$THEME_ROOT/layouts" 'partial(Cached)?[[:space:]]+"partials/' "old partial lookup path"
+    assert_static_partials_exist
     assert_no_file_contains_regex "$THEME_ROOT/layouts" '\.Exif\b|Tags\.Orientation' "deprecated image metadata API"
     assert_no_file_contains_regex "$THEME_ROOT/layouts" '\.Site\.LanguageCode|\.Language\.LanguageCode' "deprecated language template API"
     assert_no_file_contains_regex "$THEME_ROOT/layouts" '\.Site\.Sites|\.Page\.Sites' "deprecated site collection API"

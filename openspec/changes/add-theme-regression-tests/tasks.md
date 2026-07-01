@@ -8,6 +8,7 @@
 - [x] 2.1 Fail if old `partials/` partial names return.
 - [x] 2.2 Fail if deprecated language, site collection, or image metadata APIs return.
 - [x] 2.3 Fail if direct image transforms return outside the guarded helper.
+- [x] 2.4 Fail if a literal partial reference has no matching file under `layouts/_partials`.
 
 ## 3. Rendered Output Checks
 
